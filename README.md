@@ -38,3 +38,34 @@ git commit -m "Initial commit: Aegis Architecture with Rust, Sui, and Walrus int
 git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/aegis-bridge.git
 git push -u origin main
+
+
+graph TD;
+    %% External Inputs
+    A[Offline User] -->|SMS/Mesh Network Data| B(Aegis Rust Agent);
+    
+    %% The Agent Brain
+    subgraph Agentic Backend
+    B -->|Sends Raw Text| C{Groq AI Engine};
+    C -->|Returns Strict JSON| B;
+    end
+    
+    %% The Web3 Execution
+    subgraph Blockchain Layer
+    B -->|Uploads Heavy Files| D[(Walrus Storage Node)];
+    D -.->|Returns Blob ID| B;
+    B -->|Executes Transaction via CLI| E[(Sui Devnet Vault)];
+    end
+    
+    %% The Command Center
+    subgraph Frontend Interface
+    E -->|On-Chain Receipt| F[Next.js Dashboard];
+    F -->|Indexes Address| E;
+    end
+    
+    style A fill:#1e1e1e,stroke:#fff,stroke-width:2px,color:#fff
+    style B fill:#0052cc,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#ff8b00,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#6554c0,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#00b8d9,stroke:#fff,stroke-width:2px,color:#fff
+    style F fill:#36b37e,stroke:#fff,stroke-width:2px,color:#fff
