@@ -1,0 +1,12 @@
+[package]
+name = "aegis_vault"
+edition = "2024"
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/devnet" }
+
+[addresses]
+aegis_vault = "0x0"
+
+[env.devnet.addresses]
+aegis_vault = "0x0"
