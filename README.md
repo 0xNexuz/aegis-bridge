@@ -39,7 +39,7 @@ git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/aegis-bridge.git
 git push -u origin main
 
-
+```mermaid
 graph TD;
     %% External Inputs
     A[Offline User] -->|SMS/Mesh Network Data| B(Aegis Rust Agent);
@@ -69,3 +69,4 @@ graph TD;
     style D fill:#6554c0,stroke:#fff,stroke-width:2px,color:#fff
     style E fill:#00b8d9,stroke:#fff,stroke-width:2px,color:#fff
     style F fill:#36b37e,stroke:#fff,stroke-width:2px,color:#fff
+    ```
